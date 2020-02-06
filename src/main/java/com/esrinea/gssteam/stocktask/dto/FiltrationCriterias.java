@@ -21,6 +21,15 @@ public class FiltrationCriterias {
     public FiltrationCriterias() {
     }
 
+    public FiltrationCriterias(int reportByCategoryId, int reportByItemId, Date reportByStartDate, Date reportByEndDate) {
+        this.reportByCategoryId = reportByCategoryId;
+        this.reportByItemId = reportByItemId;
+        this.reportByStartDate = reportByStartDate;
+        this.reportByEndDate = reportByEndDate;
+    }
+    
+    
+
     public void setReportByCategoryId(int reportByCategoryId) {
         this.reportByCategoryId = reportByCategoryId;
     }

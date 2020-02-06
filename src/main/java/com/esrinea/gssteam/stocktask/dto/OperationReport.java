@@ -70,4 +70,30 @@ public class OperationReport {
         return operationType;
     }
     
+    @Override
+    public boolean equals(Object object) {
+        boolean result = false;
+        if(object instanceof OperationReport){
+            if(object!=null){
+                OperationReport operationReport = (OperationReport) object;
+                if(operationReport.getItem().equals(item)
+                        && operationReport.getOperationAmount()==operationAmount
+                        && operationReport.getOperationType().equals(operationType)){
+                    result = true;
+                }
+            }
+        }  
+        return result; 
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+	int result = 1;
+	result = prime * result + item.getItemId();
+        result = prime * result + item.getAmount();
+	result = prime * result + ((item.getItemName() == null) ? 0 : item.getItemName().hashCode());
+        result = prime * result + ((operationType == null) ? 0 : operationType.hashCode());
+	return result;
+    }
 }

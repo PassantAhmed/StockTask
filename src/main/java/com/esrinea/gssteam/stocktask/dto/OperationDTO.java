@@ -12,7 +12,6 @@ import java.sql.Date;
  * @author passant.swelum
  */
 public class OperationDTO {
-
     private int operationAmount;
     private String operationType;
     private Date createdDate;

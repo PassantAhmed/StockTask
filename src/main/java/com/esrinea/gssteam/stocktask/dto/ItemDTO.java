@@ -23,6 +23,15 @@ public class ItemDTO {
 
     public ItemDTO() {
     }
+    
+    public ItemDTO(String itemName, String itemDescription, int amount, Date createdDate, Date lastModifiedDate, int categoryId) {
+        this.itemName = itemName;
+        this.itemDescription = itemDescription;
+        this.amount = amount;
+        this.createdDate = createdDate;
+        this.lastModifiedDate = lastModifiedDate;
+        this.categoryId = categoryId;
+    }
 
     public ItemDTO(int itemId, String itemName, String itemDescription, int amount, Date createdDate, Date lastModifiedDate, int categoryId) {
         this.itemId = itemId;
@@ -90,4 +99,26 @@ public class ItemDTO {
         return lastModifiedDate;
     }
     
+    @Override
+    public boolean equals(Object object) {
+        boolean result = false;
+        if(object instanceof ItemDTO){
+            if(object!=null){
+                ItemDTO item = (ItemDTO) object;
+                if(item.getItemName().equals(itemName)){
+                    result = true;
+                }
+            }
+        }  
+        return result; 
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+	int result = 1;
+	result = prime * result + itemId;
+	result = prime * result + ((itemName == null) ? 0 : itemName.hashCode());
+	return result;
+    }
 }

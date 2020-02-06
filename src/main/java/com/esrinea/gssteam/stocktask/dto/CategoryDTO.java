@@ -29,6 +29,13 @@ public class CategoryDTO {
         this.createdDate = createdDate;
         this.lastModifiedDate = lastModifiedDate;
     }
+    
+    public CategoryDTO(String categoryName, String categoryDescription, Date createdDate, Date lastModifiedDate) {
+        this.categoryName = categoryName;
+        this.categoryDescription = categoryDescription;
+        this.createdDate = createdDate;
+        this.lastModifiedDate = lastModifiedDate;
+    }
 
     public void setId(int id) {
         this.id = id;
@@ -70,4 +77,28 @@ public class CategoryDTO {
         return lastModifiedDate;
     }
 
+    @Override
+    public boolean equals(Object object) {
+        boolean result = false;
+        if(object instanceof CategoryDTO){
+            if(object!=null){
+                CategoryDTO category = (CategoryDTO) object;
+                if(category.getCategoryName().equals(categoryName)){
+                    result = true;
+                }
+            }
+        }  
+        return result; 
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+	int result = 1;
+	result = prime * result + id;
+	result = prime * result + ((categoryName == null) ? 0 : categoryName.hashCode());
+	return result;
+    }
+
+    
 }
