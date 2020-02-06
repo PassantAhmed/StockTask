@@ -30,9 +30,15 @@ public class ValidationHelper {
     }
     
     private static boolean checkNumberPattern(String number) {
-        Pattern pattern = Pattern.compile(NUMBER_REGEX);
-        Matcher matcher = pattern.matcher(number);
-        return matcher.matches();
+        boolean result = true;
+        if(number==null){
+            result = false;
+        }else{
+            Pattern pattern = Pattern.compile(NUMBER_REGEX);
+            Matcher matcher = pattern.matcher(number);
+            result = matcher.matches();
+        }
+        return result;
     }
     
     public static boolean isValidName(String name){
