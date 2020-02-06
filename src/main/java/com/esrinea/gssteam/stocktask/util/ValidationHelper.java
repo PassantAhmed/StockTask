@@ -71,9 +71,12 @@ public class ValidationHelper {
     
     public static boolean isValidDate(Date date){
         boolean result = true;
-        if(date.after(new Date(System.currentTimeMillis()))){
+        if(date==null){
             result = false;
         }
+        else if(date.after(new Date(System.currentTimeMillis()))){
+            result = false;
+        } 
         return result;
     }
     
